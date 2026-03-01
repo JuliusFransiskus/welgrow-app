@@ -1,0 +1,171 @@
+@extends('layout.app')
+
+@section('content')
+
+<div class="p-6">
+    <div class="flex items-center mb-4 border-b border-gray-300 pb-4">
+        <!-- title -->
+        <h1 class="inline-block text-xl font-semibold leading-6">Edit vendor</h1>
+    </div>
+
+    <div class="mb-8 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="mb-lg-0 col-span-1">
+            <h4 class="mb-1">Basic Information</h4>
+        </div>
+        <!-- card -->
+        <div class="card shadow col-span-3">
+            <!-- card body -->
+            <div class="card-body">
+            <!-- col -->
+            <div>
+                
+                <form method="POST" action="{{ route('vendors.update', $vendor->id) }}">
+                    @csrf
+                    @method('PUT')
+                    <!-- Code -->
+                    <div class="mb-6 inline-flex md:flex md:items-center gap-3 flex-col md:flex-row w-full">
+                        <label for="code" class="flex-1 text-gray-800 font-semibold">vendor Code</label>
+                        <div class="flex-[3] w-full">
+                        <input type="text"
+                            class="border border-gray-300 text-gray-900 rounded focus:ring-indigo-600 focus:border-indigo-600 block w-full p-2 px-3 disabled:opacity-50 disabled:pointer-events-none"
+                            id="code"
+                            required=""
+                            name="code" 
+                            value="{{ old('code', $vendor->code) }}"
+                        />
+                        </div>
+                    </div>
+                    <!-- Name -->
+                    <div class="mb-6 inline-flex md:flex md:items-center gap-3 flex-col md:flex-row w-full">
+                        <label for="name" class="flex-1 text-gray-800 font-semibold">vendor Name</label>
+                        <div class="flex-[3] w-full">
+                        <input type="text"
+                            class="border border-gray-300 text-gray-900 rounded focus:ring-indigo-600 focus:border-indigo-600 block w-full p-2 px-3 disabled:opacity-50 disabled:pointer-events-none"
+                            placeholder="vendor Name" 
+                            id="name" 
+                            required="" 
+                            name="name"
+                            value="{{ old('name', $vendor->name) }}"
+                        />
+                        </div>
+                    </div>
+                    <!-- Tax ID -->
+                    <div class="mb-6 inline-flex md:flex md:items-center gap-3 flex-col md:flex-row w-full">
+                        <label for="tax_id" class="flex-1 text-gray-800 font-semibold">
+                        Tax id
+                        </label>
+                        <div class="flex-[3] w-full">
+                        <input type="text"
+                            class="border border-gray-300 text-gray-900 rounded focus:ring-indigo-600 focus:border-indigo-600 block w-full p-2 px-3 disabled:opacity-50 disabled:pointer-events-none"
+                            placeholder="Tax ID" 
+                            id="taxid" 
+                            required="" 
+                            name="tax_id"
+                            value="{{ old('tax_id', $vendor->tax_id) }}"
+                            />
+                        </div>
+                    </div>
+                    <!-- vendor Type -->
+                    <div class="mb-6 inline-flex md:flex md:items-center gap-3 flex-col md:flex-row w-full">
+                        <label for="type" class="flex-1 text-gray-800 font-semibold">Type</label>
+
+                        <div class="flex-[3] w-full">
+                        <select name="type"
+                            class="text-gray-900 border border-gray-300 rounded focus:ring-indigo-600 focus:border-indigo-600 block w-full p-2 px-3 disabled:opacity-50 disabled:pointer-events-none"
+                            id="type">
+                            <option value="">Select vendor Type</option>
+                            <option value="1"
+                            {{ old('type', $vendor->type) == '1' ? 'selected' : '' }}>
+                            vendor</option>
+                            <option value="2"
+                            {{ old('type', $vendor->type) == '2' ? 'selected' : '' }}>
+                            Vendor</option>
+                            <option value="3"
+                            {{ old('type', $vendor->type) == '3' ? 'selected' : '' }}>
+                            Agent</option>
+                        </select>
+                        </div>
+                    </div>
+                    <!-- PIC Name -->
+                    <div class="mb-6 inline-flex md:flex md:items-center gap-3 flex-col md:flex-row w-full">
+                        <label for="pic" class="flex-1 text-gray-800 font-semibold">Person In Charge
+                        </label>
+
+                        <div class="flex-[3] w-full">
+                        <input type="text"
+                            class="border border-gray-300 text-gray-900 rounded focus:ring-indigo-600 focus:border-indigo-600 block w-full p-2 px-3 disabled:opacity-50 disabled:pointer-events-none"
+                            placeholder="Persin in Charge" 
+                            d="pic" 
+                            required="" 
+                            name="pic"
+                            value="{{ old('pic', $vendor->pic) }}"
+                        />
+                        </div>
+                    </div>
+                    <!-- Email -->
+                    <div class="mb-6 inline-flex md:flex md:items-center gap-3 flex-col md:flex-row w-full">
+                        <label for="email" class="flex-1 text-gray-800 font-semibold">Email</label>
+                        <div class="flex-[3] w-full">
+                        <input type="email"
+                            class="border border-gray-300 text-gray-900 rounded focus:ring-indigo-600 focus:border-indigo-600 block w-full p-2 px-3 disabled:opacity-50 disabled:pointer-events-none"
+                            placeholder="Email" 
+                            id="email" 
+                            required="" 
+                            name="email"
+                            value="{{ old('email', $vendor->email) }}"
+                        />
+                        </div>
+                    </div>
+                    <!-- Phone -->
+                    <div class="mb-6 inline-flex md:flex md:items-center gap-3 flex-col md:flex-row w-full">
+                        <label for="phone" class="flex-1 text-gray-800 font-semibold">Phone Number</label>
+
+                        <div class="flex-[3]">
+                        <input type="number"
+                            class="border border-gray-300 text-gray-900 rounded focus:ring-indigo-600 focus:border-indigo-600 block w-full p-2 px-3 disabled:opacity-50 disabled:pointer-events-none"
+                            placeholder="Phone Number" 
+                            id="phone" 
+                            required="" 
+                            name="phone" 
+                            value="{{ old('phone', $vendor->phone) }}"
+                            />
+                        </div>
+                    </div>
+                    <div class="mb-6 inline-flex md:flex md:items-center gap-3 flex-col md:flex-row w-full">
+                        <label for="address" class="flex-1 text-gray-800 font-semibold">Address</label>
+
+                        <div class="flex-[3]">
+                            <textarea 
+                                name="address"
+                                rows="5"
+                                class="border border-gray-300 text-gray-900 rounded focus:ring-indigo-600 focus:border-indigo-600 block w-full p-2 px-3 disabled:opacity-50 disabled:pointer-events-none"
+                                placeholder="Address" 
+                                id="address" 
+                                required="" 
+                                name="address">{{ old('address', $vendor->address) }}
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="mb-6 inline-flex md:flex md:items-center gap-3 flex-col md:flex-row w-full">
+                        <div class="flex-1 text-gray-800 font-semibold"></div>
+                        <div class="flex-[3]">
+                        <button type="submit"
+                            class="btn bg-indigo-600 text-white border-indigo-600 hover:bg-indigo-800 hover:border-indigo-800 active:bg-indigo-800 active:border-indigo-800 focus:outline-none focus:ring-4 focus:ring-indigo-300">
+                            Update
+                        </button>
+                        <button type="button"
+                            onclick="window.location='{{ route('vendors.index') }}'"
+                            class="btn bg-yellow-500 hover:bg-yellow-600
+                                text-white rounded-md transition">
+                            Back
+                        </button>                      
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection

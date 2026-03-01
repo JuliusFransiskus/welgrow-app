@@ -1,0 +1,147 @@
+@extends('layout.app')
+
+@section('content')
+
+<div class="erp-bg min-h-screen">
+
+    <!-- ================= TOP NAV ================= -->
+    <div class="erp-topbar">
+        <div class="erp-tab active">Booking Order</div>
+        <div class="erp-tab">Receivables</div>
+        <div class="erp-tab">Cost</div>
+        <div class="erp-tab">Debit Note</div>
+        <div class="erp-tab">Credit Note</div>
+        <div class="erp-tab">Profit</div>
+        <div class="erp-tab">Shipping</div>
+        <div class="ml-auto flex gap-3 items-center pr-6">
+            <button class="erp-btn-light">Key</button>
+            <button class="erp-btn-primary">Save</button>
+        </div>
+    </div>
+
+    <!-- ================= CONTENT ================= -->
+    <div class="erp-wrapper">
+
+        <div class="erp-card">
+
+            <h2 class="erp-title">Booking Order</h2>
+
+            <!-- FORM GRID -->
+            <div class="erp-grid">
+
+                <!-- LEFT SIDE -->
+                <div class="erp-section">
+
+                    <div class="erp-row">
+                        <div class="erp-label">Job No.</div>
+                        <input class="erp-input" value="221525126045">
+                    </div>
+
+                    <div class="erp-row">
+                        <div class="erp-label">Customer</div>
+                        <div class="erp-inline">
+                            <input class="erp-input-sm" value="TDC01">
+                            <input class="erp-input flex-1" value="PT DCI INDONESIA TBK">
+                        </div>
+                    </div>
+
+                    <div class="erp-row">
+                        <div class="erp-label">Shipper</div>
+                        <input class="erp-input" value="C&D JIANGSU TECHNOLOGIES CO., LTD">
+                    </div>
+
+                    <div class="erp-row">
+                        <div class="erp-label">POL</div>
+                        <div class="erp-inline">
+                            <span class="erp-badge">SHI</span>
+                            <input class="erp-input flex-1" value="SURABAYA, INDONESIA">
+                        </div>
+                    </div>
+
+                    <div class="erp-row">
+                        <div class="erp-label">POD</div>
+                        <div class="erp-inline">
+                            <span class="erp-badge green">JKT</span>
+                            <input class="erp-input flex-1" value="JAKARTA, INDONESIA">
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT SIDE -->
+                <div class="erp-section">
+
+                    <div class="erp-row">
+                        <div class="erp-label">Approval</div>
+                        <select class="erp-input">
+                            <option>No</option>
+                            <option>Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="erp-row">
+                        <div class="erp-label">Date Create</div>
+                        <input type="date" class="erp-input">
+                    </div>
+
+                    <div class="erp-row">
+                        <div class="erp-label">Shipping Line</div>
+                        <input class="erp-input" value="SBAH06">
+                    </div>
+
+                    <div class="erp-row">
+                        <div class="erp-label">Gross Wgt</div>
+                        <input class="erp-input text-right" value="25,240.00">
+                    </div>
+
+                    <div class="erp-row">
+                        <div class="erp-label">CBM</div>
+                        <input class="erp-input text-right" value="60.000">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CONTAINER TABLE -->
+            <div class="erp-table-section">
+
+                <div class="erp-table-header">
+                    <h3>Containers</h3>
+                    <button class="erp-btn-soft">+ Add</button>
+                </div>
+
+                <table class="erp-table">
+                    <thead>
+                        <tr>
+                            <th>Size</th>
+                            <th>Container No.</th>
+                            <th>Seal No.</th>
+                            <th>Type</th>
+                            <th>Pkgs</th>
+                            <th>Gross Wgt</th>
+                            <th>Net Wgt</th>
+                            <th>CBM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="erp-badge">40'</span></td>
+                            <td>MSMUB110192</td>
+                            <td>FJ62531258</td>
+                            <td>SBAH06</td>
+                            <td>2500 BOX(S)</td>
+                            <td>25,240.00</td>
+                            <td>24,740.00</td>
+                            <td>60.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@endsection
