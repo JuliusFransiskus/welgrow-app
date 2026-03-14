@@ -23,5 +23,4 @@ Route::resource('customers', CustomerController::class);
 use App\Http\Controllers\VendorController;
 Route::resource('vendors', VendorController::class);
 
-Route::view('/bookingorder/bo_new', 'bookingorder.bo_new')
-    ->name('bo_new');
+Route::view('/bo_new', 'bookingorder.bo_new')->name('bo_new');

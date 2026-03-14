@@ -12,6 +12,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
+        $customers = Customer::orderBy('name')->get();
         $customers = \App\Models\Customer::latest()->paginate(10);
         return view('customers.customer', compact('customers'));
     }
@@ -21,7 +22,8 @@ class CustomerController extends Controller
      */
     public function create()
     {
- return view('customers.customer_new');
+        return view('customers.customer_new');
+        return view('bookingorder.bo_new', compact('customers'));
     }
 
     /**

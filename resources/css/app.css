@@ -9,6 +9,23 @@
     --text-muted: #6b7280;
 }
 
+.booking-input {
+    width: 100%;
+    background-color: #f8fafc; /* slate-50 */
+    border: 1px solid #e2e8f0; /* slate-200 */
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #334155; /* slate-700 */
+    transition: all 0.2s ease;
+}
+
+.booking-input:focus {
+    outline: none;
+    border-color: #3b82f6; /* blue-500 */
+    box-shadow: 0 0 0 1px #3b82f6;
+}
+
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
